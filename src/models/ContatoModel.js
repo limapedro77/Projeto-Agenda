@@ -64,7 +64,14 @@ class Contato {
         this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, { new: true })
         return this.contato
     }
+
+    static async delete(id) {
+        if (typeof id !== 'string') return;
+        const contato = await ContatoModel.findByIdAndDelete(id);
+        return contato;
+    }
 }
+
 
 
 
